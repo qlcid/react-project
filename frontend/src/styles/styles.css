@@ -373,7 +373,7 @@ body code {
   background-color: #434343;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 9999px) {
   .btn-dark {
     bottom: 7px;
     left: 7px;

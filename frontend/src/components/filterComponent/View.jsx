@@ -1,74 +1,32 @@
-import React, { useContext, useState } from "react";
-import { ProductContext } from "../../contexts/productContext";
-import FilterDropdown from "./containers/FilterDropdown";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+
 const FilterContainer = (props) => {
-  const {
-    brands,
-    setBrandFilterProducts,
-    filterBrand,
-    clearBrandFilterProducts,
-    filterStates,
-    filterCities,
-    setBrandFilterState,
-    setBrandFilterCity,
-    filterState,
-    filterCity,
-    filterBrands,
-  } = useContext(ProductContext);
-  let { hide, onClose, dark } = props;
-  const setActiveProduct = (brandName) => {
-    setBrandFilterProducts(brandName);
-  };
-  const setActiveState = (StateName) => {
-    setBrandFilterState(StateName);
-  };
-  const setActiveCity = (CityName) => {
-    setBrandFilterCity(CityName);
-  };
-  const clearFilter = () => {
-    clearBrandFilterProducts();
-  };
+  const {onClose} =props;
   return (
-    <div className={`filter-container ${hide ? "hide" : ""} ${dark ? "dark" : "normal"}`}>
-      <div className="row">
-        <div className="col-6">
-          <h2 className="filter-header">Filter</h2>
-        </div>
-        <div className="col-6 clear d-flex justify-content-md-center justify-content-end">
-          <h2 onClick={clearFilter} className="filter-header mr-0">
-            Clear
-          </h2>
-        </div>
-      </div>
-      <div className="filter-line"></div>
-      <ul className="filter-3">
-        <FilterDropdown
-          constName={filterBrand ? filterBrand : "Products"}
-          dropdownList={filterBrands}
-          setActive={setActiveProduct}
-          onClose={onClose}
-        />
-        <FilterDropdown
-          constName={filterState ? filterState : "State"}
-          dropdownList={filterStates}
-          setActive={setActiveState}
-          onClose={onClose}
-        />
-        <FilterDropdown
-          constName={filterCity ? filterCity : "City"}
-          dropdownList={filterCities}
-          setActive={setActiveCity}
-          onClose={onClose}
-        />
-      </ul>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="ID"
+      aria-label="login-id"
+      />
+    <input
+      type="password"
+      class="form-control"
+      placeholder="PASSWORD"
+      aria-label="login-password"
+      />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary" 
+        type="button" 
+        id="btn_login"
+        onClick={()=>{onClose(false)}}>로그인</button>
     </div>
+  </div>
   );
 };
-FilterContainer.propTypes = {
-  hide: PropTypes.bool,
-  onClose: PropTypes.func,
-  dark: PropTypes.bool,
-};
+
 export default FilterContainer;
