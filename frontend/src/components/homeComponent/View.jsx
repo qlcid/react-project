@@ -4,9 +4,11 @@ import FilterContainer from "../filterComponent/View";
 import Button from "@mui/material/Button";
 import FilterPopup from "../filterComponent/containers/FilterPopup";
 import DarkModeBtn from "./containers/DarkModeBtn";
+
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+
   return (
     <div className={`home ${darkMode ? "dark" : "normal"}`}>
       <DarkModeBtn
@@ -45,3 +47,12 @@ const Home = () => {
 };
 
 export default Home;
+export function FullPageLanding(){
+  const [ popup, setPopup ] = useState(true);
+
+  return (
+    <>
+      {popup ? <FilterContainer onClose={setPopup} /> : null}
+    </>
+  )
+}
