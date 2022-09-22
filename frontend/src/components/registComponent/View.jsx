@@ -43,15 +43,6 @@ const SignUpForm = ({
           <div>
           <label><input type="radio" name="gender" value={user.gender} onChange={onChange}/>Female</label>
           <label><input type="radio" name="gender" value={user.gender} onChange={onChange}/>Male</label>
-          </div>
-
-        <div>
-          <textarea
-            name="user_desc"
-            placeholder="Description"
-            onChange={onChange}
-            value={user.user_desc}
-          />
           </div> 
           
           <div>

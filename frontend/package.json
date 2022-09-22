@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage":"https://gaserashraf.github.io/Edvora-assessment",
+  "proxy": "http://10.149.179.14:8080",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

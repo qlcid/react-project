@@ -12,7 +12,6 @@ class Regist extends Component {
         password: "",
         name: "",
         gender: "",
-        user_desc: "",
         content: "",
         language_id: ""
       },
@@ -34,20 +33,21 @@ class Regist extends Component {
   }
 
   submitSignup(user) {
-    var params = { user_id: user.user_id, password: user.password, name: user.name, gender: user.gender, user_desc: user.user_desc, content: user.content, language_id: user.language_id };
+    var params = { user_id: user.user_id, password: user.password, name: user.name, gender: user.gender, content: user.content, language_id: user.language_id };
     console.log(params.user_id);
-    // axios
-    //   .post("/", params) //서버
-    //   .then(res => {
-    //     if (res.data.success === true) {
-    //     //   화면이동
-    //     } else {
+    axios
+      .post("/api/user/signup", params) //서버
+      .then(res => {
+        if (res.data.success === true) {
+        //   화면이동
+        
+        } else {
           
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log("Sign up data submit error: ", err);
-    //   });
+        }
+      })
+      .catch(err => {
+        console.log("Sign up data submit error: ", err);
+      });
   }
 
 
@@ -56,7 +56,7 @@ class Regist extends Component {
       <div>
         <SignUpForm
           onChange={this.handleChange}
-          onSubmit={this.validateForm}
+          onSubmit={this.submitSignup}
           user={this.state.user}
      
         />
