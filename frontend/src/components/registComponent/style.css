@@ -1,0 +1,41 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #4c91ad;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  }
+
+form {
+    width: 100%;
+}
+
+h1, label, p {
+    color:black
+}
+
+input, textarea {
+    color: black;
+}
+
+.loginBox {
+    width: 50%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
+}
+
+.signUpSubmit {
+    margin: 25px 0 15px 0;
+  }
+
+/* #submit {
+    margin: 25px 0 15px 0;
+    background-color: cadetblue;
+} */
+
