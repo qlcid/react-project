@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Products from "../productsComponent/View";
-import FilterContainer from "../filterComponent/View";
 import Button from "@mui/material/Button";
-import FilterPopup from "../filterComponent/containers/FilterPopup";
 import DarkModeBtn from "./containers/DarkModeBtn";
+import FilterContainer from "../filterComponent/View";
+import FilterPopup from "../filterComponent/containers/FilterPopup";
+import LoginContainer from "../loginComponent/View";
+import LoginPopup from "../loginComponent/containers/LoginPopup";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +24,24 @@ const Home = () => {
           <FilterContainer hide={true} dark={darkMode} />
         </div>
         <div className="col-md-9 col-12 cont">
+          <div className="login">
+            <Button
+              className="Button"
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              로그인
+            </Button>
+            <LoginPopup
+              dark={darkMode}
+              open={open}
+              onClose={() => {
+                setOpen(false);
+              }}
+            />
+          </div>
+          {/* 필터 컴포넌트
           <div className="dia">
             <Button
               className="Button"
@@ -37,9 +57,8 @@ const Home = () => {
               onClose={() => {
                 setOpen(false);
               }}
-            />
-          </div>
-          <Products  dark={darkMode} />
+            /> */}
+          <Products dark={darkMode} />
         </div>
       </div>
     </div>
@@ -47,12 +66,8 @@ const Home = () => {
 };
 
 export default Home;
-export function FullPageLanding(){
-  const [ popup, setPopup ] = useState(true);
+export function LoginModal() {
+  const [popup, setPopup] = useState(true);
 
-  return (
-    <>
-      {popup ? <FilterContainer onClose={setPopup} /> : null}
-    </>
-  )
+  return <>{popup ? <LoginContainer onClose={setPopup} /> : null}</>;
 }

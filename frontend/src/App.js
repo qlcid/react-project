@@ -7,8 +7,8 @@ import Regist from "./components/registComponent/Regist";
 function App() {
   return (
     <ProductContextProvider>
-      {/* <Home /> */}
-      <Regist />
+      <Home />
+      {/* <Regist /> */}
     </ProductContextProvider>
   );
 }

@@ -24,12 +24,15 @@ body * {
   box-sizing: border-box;
 }
 body body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 body code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .Button {
@@ -181,7 +184,13 @@ body code {
 .home .products-home .product-container .product-list .product-item .dis {
   margin-left: 0;
 }
-.home .products-home .product-container .product-list .product-item .dis .text-sec {
+.home
+  .products-home
+  .product-container
+  .product-list
+  .product-item
+  .dis
+  .text-sec {
   font-size: 11px;
   line-height: 16px;
 }
@@ -282,10 +291,20 @@ body code {
 .home.normal .products-home .product-container .product-list .product-item {
   background-color: #f7f7f7;
 }
-.home.normal .products-home .product-container .product-list .product-item .p-name {
+.home.normal
+  .products-home
+  .product-container
+  .product-list
+  .product-item
+  .p-name {
   color: #212529;
 }
-.home.normal .products-home .product-container .product-list .product-item .price {
+.home.normal
+  .products-home
+  .product-container
+  .product-list
+  .product-item
+  .price {
   color: #212529;
 }
 .home.normal .products-home .product-container .arrow i {
@@ -339,10 +358,20 @@ body code {
 .home.dark .products-home .product-container .product-list .product-item {
   background-color: #292929;
 }
-.home.dark .products-home .product-container .product-list .product-item .p-name {
+.home.dark
+  .products-home
+  .product-container
+  .product-list
+  .product-item
+  .p-name {
   color: #ffffff;
 }
-.home.dark .products-home .product-container .product-list .product-item .price {
+.home.dark
+  .products-home
+  .product-container
+  .product-list
+  .product-item
+  .price {
   color: #ffffff;
 }
 
@@ -461,7 +490,11 @@ body code {
     max-width: 302px;
     max-height: 162px;
   }
-  .home .products-home .product-container .product-list .product-item:first-of-type {
+  .home
+    .products-home
+    .product-container
+    .product-list
+    .product-item:first-of-type {
     margin-top: 20px;
   }
   .home .products-home .product-container .product-line {
