@@ -14,9 +14,9 @@ const SignUpForm = ({
         <form onSubmit={onSubmit}>
           <div>
           <input
-            name="user_id"
+            name="userId"
             placeholder="User Id"
-            value={user.user_id}
+            value={user.userId}
             onChange={onChange}
           />
           </div>  
@@ -41,8 +41,8 @@ const SignUpForm = ({
           </div> 
           
           <div>
-          <label><input type="radio" name="gender" value={user.gender} onChange={onChange}/>Female</label>
-          <label><input type="radio" name="gender" value={user.gender} onChange={onChange}/>Male</label>
+          <label><input type="radio" name="gender" value="Female" onChange={onChange}/>Female</label>
+          <label><input type="radio" name="gender" value="Male" onChange={onChange}/>Male</label>
           </div> 
           
           <div>
@@ -56,10 +56,10 @@ const SignUpForm = ({
           
           <div>
           <input
-            name="language_id"
+            name="languageId"
             placeholder="Language"
             onChange={onChange}
-            value={user.language_id}
+            value={user.languageId}
           />
           </div>
 

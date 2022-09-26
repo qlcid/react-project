@@ -1,13 +1,14 @@
 import "./App.css";
 import "./styles/styles.css";
-// import Home from "./components/homeComponent/View";
+import Home from "./components/homeComponent/View";
 import ProductContextProvider from "./contexts/productContext";
 import Regist from "./components/registComponent/Regist";
 
 function App() {
   return (
     <ProductContextProvider>
-      <Regist />
+      <Home />
+      {/* <Regist /> */}
     </ProductContextProvider>
   );
 }
