@@ -26,15 +26,15 @@ import lombok.ToString;
 @Table(name = "apply")
 public class Apply {
 
-  @EmbeddedId
-  private ApplyId applyId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "board_id")
+  private Integer applyId;
 
-  @MapsId("userId")
   @OneToOne
   @JoinColumn(name = "user_id")
   private User user;
 
-  @MapsId("boardId")
   @OneToOne
   @JoinColumn(name = "board_id")
   private Board board;
