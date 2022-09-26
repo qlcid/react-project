@@ -22,11 +22,11 @@ public class SignUpReq {
   private String name;
 
   @ApiModelProperty(name = "자기소개", example = "자개소개")
-  private String userDesc;
+  private String content;
 
   @ApiModelProperty(name = "성별", example = "F")
   private String gender;
 
-  @ApiModelProperty(name = "언어(모델링 수정필요)", example = "JAVA")
-  private String language;
+  @ApiModelProperty(name = "언어", example = "0")
+  private Integer languageId;
 }

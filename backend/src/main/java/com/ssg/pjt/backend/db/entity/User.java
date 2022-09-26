@@ -29,16 +29,13 @@ public class User {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "user_desc")
-  private String userDesc;
+  @Column(name = "content")
+  private String content;
 
   @Column(name = "gender")
   private String gender;
 
-  @Column(name = "language")
-  private String language;
-
-//  @OneToOne
-//  @JoinColumn(name = "language_id")
-//  private Language language;
+  @OneToOne
+  @JoinColumn(name = "language_id")
+  private Language language;
 }
