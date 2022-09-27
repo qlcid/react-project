@@ -44,4 +44,13 @@ public class BoardService {
     board.update(req);
     boardRepository.save(board);
   }
+
+  @Transactional
+  public void delete(Integer boardId, String userId) {
+    User user = userRepository.findById(userId).orElseThrow();
+
+    Board board = boardRepository.findById(boardId).orElseThrow();
+
+    boardRepository.delete(board);
+  }
 }
