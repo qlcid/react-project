@@ -27,6 +27,6 @@ public class SignUpReq {
   @ApiModelProperty(name = "성별", example = "F")
   private String gender;
 
-  @ApiModelProperty(name = "언어", example = "0")
+  @ApiModelProperty(name = "언어", example = "1")
   private Integer languageId;
 }

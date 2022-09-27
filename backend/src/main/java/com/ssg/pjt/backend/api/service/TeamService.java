@@ -36,9 +36,13 @@ public class TeamService {
   }
 
   @Transactional
-  public void apply(ApplyReq req) {
+  public void apply(ApplyReq req) throws Exception {
     User user = userRepository.findById(req.getUserId()).orElseThrow();
     Board board = boardRepository.findById(req.getBoardId()).orElseThrow();
+
+    if (applyRepository.findByUserUserId(req.getUserId()).isPresent()) {
+      throw new Exception();
+    }
 
     Apply apply = Apply.builder()
         .user(user)

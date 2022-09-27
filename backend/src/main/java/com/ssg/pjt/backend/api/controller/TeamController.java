@@ -37,7 +37,7 @@ public class TeamController {
 
   @ApiOperation(value = "팀 신청", notes = "팀 가입을 신청한다.")
   @PostMapping("")
-  public ResponseEntity apply(@RequestBody ApplyReq req) {
+  public ResponseEntity apply(@RequestBody ApplyReq req) throws Exception {
     service.apply(req);
 
     return new ResponseEntity(HttpStatus.OK);
