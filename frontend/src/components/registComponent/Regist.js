@@ -93,6 +93,8 @@ class Regist extends Component {
           <SignUpForm
             onChange={this.handleChange}
             onSubmit={this.submitSignup}
+            onClose={onClose}
+            hide={false}
             user={this.state.user}
           />
         </Dialog>
