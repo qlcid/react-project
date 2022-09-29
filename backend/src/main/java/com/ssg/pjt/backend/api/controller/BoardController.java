@@ -1,6 +1,7 @@
 package com.ssg.pjt.backend.api.controller;
 
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
+import com.ssg.pjt.backend.api.dto.res.BoardRes;
 import com.ssg.pjt.backend.api.service.BoardService;
 import com.ssg.pjt.backend.db.entity.Board;
 import io.swagger.annotations.ApiOperation;
@@ -28,13 +29,13 @@ public class BoardController {
 
   @ApiOperation(value = "메인 모집글 조회", notes = "메인 화면의 프로젝트 팀원 모집글을 조회한다.")
   @GetMapping("")
-  public ResponseEntity<List<Board>> findBoardList() {
+  public ResponseEntity<List<BoardRes>> findBoardList() {
     return ResponseEntity.ok(service.findBoardList());
   }
 
   @ApiOperation(value = "글 상세", notes = "프로젝트 모집글 상세를 조회한다.")
   @GetMapping("/{boardId}")
-  public ResponseEntity<Board> findBoard(@PathVariable Integer boardId) {
+  public ResponseEntity<BoardRes> findBoard(@PathVariable Integer boardId) {
     return ResponseEntity.ok(service.findBoard(boardId));
   }
 
@@ -58,6 +59,14 @@ public class BoardController {
   @DeleteMapping("/{boardId}")
   public ResponseEntity delete(@PathVariable Integer boardId, @RequestParam String userId) {
     service.delete(boardId, userId);
+
+    return new ResponseEntity(HttpStatus.OK);
+  }
+  
+  @ApiOperation(value = "글 작성 조회", notes = "글 작성을 했는지 조회한다.")
+  @GetMapping("/check/{userId}")
+  public ResponseEntity checkWriteYn(@PathVariable String userId) {
+    service.checkWriteYn(userId);
 
     return new ResponseEntity(HttpStatus.OK);
   }

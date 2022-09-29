@@ -17,6 +17,12 @@ public class BoardReq {
   
   @ApiModelProperty(name = "게시글 내용", example = "글 내용")
   private String boardContent;
+
+  @ApiModelProperty(name = "모집 언어", example = "JAVA")
+  private String language;
+
+  @ApiModelProperty(name = "모집 지역", example = "Seoul")
+  private String state;
   
   @ApiModelProperty(name = "사용자 ID", example = "test")
   private String userId;
