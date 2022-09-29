@@ -15,7 +15,7 @@ class Regist extends Component {
         name: "",
         gender: "",
         content: "",
-        languageId: "",
+        languageId: "1",
       },
     };
 
@@ -52,7 +52,7 @@ class Regist extends Component {
       languageId: user.languageId,
     };
     console.log(params);
-    alert(params.userId);
+    // alert(params.languageId);
 
     axios
       .post("/api/user/signup", params) //서버

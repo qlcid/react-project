@@ -9,6 +9,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
       <form onSubmit={onSubmit}>
         <div>
           <input
+            id="ip1"
             name="userId"
             placeholder="User Id"
             value={user.userId}
@@ -18,6 +19,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
 
         <div>
           <input
+          id="ip2"
             name="password"
             type="password"
             placeholder="Password"
@@ -28,13 +30,14 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
 
         <div>
           <input
+          id="ip3"
             name="name"
             placeholder="Name"
             onChange={onChange}
             value={user.name}
           />
         </div>
-
+       
         <div>
           <label>
             <input
@@ -45,6 +48,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
             />
             Female
           </label>
+          &nbsp
           <label>
             <input
               type="radio"
@@ -59,19 +63,27 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
         <div>
           <textarea
             name="content"
-            placeholder="Content"
+            placeholder="Explain Yourself by One Sentence."
             onChange={onChange}
             value={user.content}
           />
         </div>
 
         <div>
-          <input
+          {/* <input
             name="languageId"
             placeholder="Language"
             onChange={onChange}
             value={user.languageId}
-          />
+          /> */}
+          <label for="cars">Choose a Language:</label><br></br>
+            <select name="languageId" id="languageId" value={user.languageId} onChange={onChange}>
+              <option value="1">JAVA</option>
+              <option value="2">Python</option>
+              <option value="3">Javascript</option>
+              <option value="4">C++</option>
+              <option value="5">C#</option>
+            </select>
         </div>
 
         <div>
@@ -85,7 +97,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
       </form>
       <p>
         Already have an account? <br />
-        <button
+        <button id="bt1"
           onClick={() => {
             onClose(false);
           }}

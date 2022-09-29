@@ -15,12 +15,36 @@ h1, label, p {
     color:black
 }
 
-input, textarea {
+input, textarea, option, select {
     color: black;
 }
 
+select {
+    width:170px;
+}
+
+label {
+    font-size: 17px;
+    line-height: 2rem;
+    padding: 0.2em 0.4em;
+  }
+
+textarea {
+    width: 350px;
+    resize: none;
+}
+
+#ip1, #ip2, #ip3 {
+    width: 300px;
+    height: 40px;
+    border-top:none;
+    border-left:none;
+    border-right: none;
+    border-bottom: 3px soild black;
+}
+
 .loginBox {
-    width: 50%;
+    width: 100%;
     text-align: center;
     position: relative;
     left: 50%;
@@ -31,9 +55,20 @@ input, textarea {
 }
 
 .signUpSubmit {
-    margin: 25px 0 15px 0;
+    margin: 10px 0 15px 0;
+    background:#ccc; 
+    -webkit-border-radius: 10px;
+    border-radius: 5px; 
   }
 
+#bt1 {
+    margin: 10px 0 15px 0;
+    background:#ccc; 
+    -webkit-border-radius: 10px;
+    border-radius: 5px; 
+    color: black;
+}
+  
 /* #submit {
     margin: 25px 0 15px 0;
     background-color: cadetblue;
