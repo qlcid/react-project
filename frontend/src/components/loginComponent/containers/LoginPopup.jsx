@@ -45,10 +45,10 @@ class LoginPopup extends Component {
         if (res.status === 200) {
           alert("로그인 성공");
         } else {
-          alert("로그인 실패");
         }
       })
       .catch((err) => {
+        alert("로그인 실패");
         console.log(err);
       });
   }
