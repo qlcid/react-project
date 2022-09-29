@@ -1,11 +1,14 @@
 package com.ssg.pjt.backend.api.service;
 
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
+import com.ssg.pjt.backend.api.dto.res.BoardRes;
 import com.ssg.pjt.backend.db.entity.Board;
 import com.ssg.pjt.backend.db.entity.User;
 import com.ssg.pjt.backend.db.repository.BoardRepository;
 import com.ssg.pjt.backend.db.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,12 +19,33 @@ public class BoardService {
   private final BoardRepository boardRepository;
   private final UserRepository userRepository;
 
-  public List<Board> findBoardList() {
-    return boardRepository.findAll();
+  public List<BoardRes> findBoardList() {
+    List<BoardRes> boardList = new ArrayList<>();
+    boardList = boardRepository.findAll().stream().map(
+        board -> BoardRes.builder()
+            .boardId(board.getBoardId())
+            .boardTitle(board.getBoardTitle())
+            .boardContent(board.getBoardContent())
+            .language(board.getLanguage())
+            .state(board.getState())
+            .boardDate(board.getBoardDate())
+            .user(board.getUser())
+            .build()).collect(Collectors.toList());
+    return boardList;
   }
 
-  public Board findBoard(Integer boardId) {
-    return boardRepository.findById(boardId).orElseThrow();
+  public BoardRes findBoard(Integer boardId) {
+    Board board = boardRepository.findById(boardId).orElseThrow();
+
+    return BoardRes.builder()
+        .boardId(board.getBoardId())
+        .boardTitle(board.getBoardTitle())
+        .boardContent(board.getBoardContent())
+        .language(board.getLanguage())
+        .state(board.getState())
+        .boardDate(board.getBoardDate())
+        .user(board.getUser())
+        .build();
   }
 
   @Transactional
@@ -31,6 +55,8 @@ public class BoardService {
     Board board = Board.builder()
         .boardTitle(req.getBoardTitle())
         .boardContent(req.getBoardContent())
+        .language(req.getLanguage())
+        .state(req.getState())
         .user(user)
         .build();
 
@@ -52,5 +78,9 @@ public class BoardService {
     Board board = boardRepository.findById(boardId).orElseThrow();
 
     boardRepository.delete(board);
+  }
+
+  public void checkWriteYn(String userId) {
+     boardRepository.findByUserUserId(userId).orElseThrow();
   }
 }

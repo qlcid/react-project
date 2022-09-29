@@ -2,6 +2,7 @@ package com.ssg.pjt.backend.db.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -16,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,6 +42,15 @@ public class Board {
   @Column(name = "board_content")
   private String boardContent;
 
+  @Column(name = "language")
+  private String language;
+
+  @Column(name = "state")
+  private String state;
+
+  @Column(name = "create_date")
+  private LocalDateTime boardDate;
+
   @OneToOne
   @JoinColumn(name = "user_id")
   private User user;
@@ -49,8 +60,16 @@ public class Board {
   @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Apply> applies = new ArrayList<>();
 
+  @PrePersist
+  private void prePersist() {
+    boardDate = LocalDateTime.now();
+  }
+
   public void update(BoardReq req) {
     this.boardTitle = req.getBoardTitle();
     this.boardContent = req.getBoardContent();
+    this.language = req.getLanguage();
+    this.state = req.getState();
+    this.boardDate = LocalDateTime.now();
   }
 }
