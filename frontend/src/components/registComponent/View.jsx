@@ -43,7 +43,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
             <input
               type="radio"
               name="gender"
-              value="Female"
+              value="F"
               onChange={onChange}
             />
             Female
@@ -53,7 +53,7 @@ const SignUpForm = ({ onChange, user, onSubmit, onClose }) => {
             <input
               type="radio"
               name="gender"
-              value="Male"
+              value="M"
               onChange={onChange}
             />
             Male
