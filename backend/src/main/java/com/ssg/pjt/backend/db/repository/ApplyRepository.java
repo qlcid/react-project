@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface ApplyRepository extends JpaRepository<Apply, Integer> {
   List<Apply> findByBoardBoardId(Integer boardId);
   Optional<Apply> findByUserUserId(String userId);
+  Optional<Apply> findByUserUserIdAndBoardBoardId(String userId, Integer boardId);
 }

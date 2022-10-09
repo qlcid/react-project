@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/*아래 폰트*/
+@font-face {
+  font-family: "fontA";
+  src: url("./font/fontA.TTF")
+}
+
+@font-face {
+  font-family: "fontB";
+  src: url("./font/fontB.TTF");
+}

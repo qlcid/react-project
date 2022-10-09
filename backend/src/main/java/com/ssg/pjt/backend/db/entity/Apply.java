@@ -1,5 +1,6 @@
 package com.ssg.pjt.backend.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,6 +41,7 @@ public class Apply {
   private User user;
 
   @ManyToOne(fetch = FetchType.LAZY)
+  @JsonIgnore
   private Board board;
 
   @Column(name = "apply_yn")

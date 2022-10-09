@@ -1,6 +1,7 @@
 package com.ssg.pjt.backend.api.service;
 
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
+import com.ssg.pjt.backend.api.dto.res.BoardCheckRes;
 import com.ssg.pjt.backend.api.dto.res.BoardRes;
 import com.ssg.pjt.backend.db.entity.Board;
 import com.ssg.pjt.backend.db.entity.User;
@@ -80,7 +81,8 @@ public class BoardService {
     boardRepository.delete(board);
   }
 
-  public void checkWriteYn(String userId) {
-     boardRepository.findByUserUserId(userId).orElseThrow();
+  public BoardCheckRes checkWriteYn(String userId) {
+     Board board = boardRepository.findByUserUserId(userId).orElseThrow();
+     return new BoardCheckRes(board.getBoardId());
   }
 }

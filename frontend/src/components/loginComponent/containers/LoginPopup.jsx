@@ -44,11 +44,13 @@ class LoginPopup extends Component {
       .then((res) => {
         if (res.status === 200) {
           alert("로그인 성공");
+          this.props.onClose();
         } else {
         }
       })
       .catch((err) => {
         alert("로그인 실패");
+        this.props.onClose();
         console.log(err);
       });
   }

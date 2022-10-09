@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
+import Button from "@mui/material/Button";
+import BoardRetrieve from "../../boardComponent/containers/BoardRetrieve";
+
 const ProductItem = (props) => {
+  const [boardRetrieveopen, setBoardRetrieveopen] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   let {
+    board_id,
     productName,
     brandName,
     price,
@@ -19,7 +25,8 @@ const ProductItem = (props) => {
       <div className="row">
         <div className="col-6 box1">
           <div className="img">
-            <img src={image}></img>
+            {/* <img src={image}></img> */}
+            <img src={require(`${image}`)}/>
           </div>
           <h3 className="text-sec adress">{state + "/" + city}</h3>
         </div>
@@ -39,12 +46,29 @@ const ProductItem = (props) => {
         </div>
       </div>
       <div className="row dis">
-        <h3 className="text-sec">{discription}</h3>
+        {/* <h3 className="text-sec">{discription}</h3> */}
+        {/* <button type="button" class="btn btn-info">상세보기</button> */}
+        <Button
+              className="Button"
+              onClick={() => {
+                setBoardRetrieveopen(true);
+              }}
+            > 상세보기
+            </Button>
+      <BoardRetrieve
+        dark={darkMode}
+        open={boardRetrieveopen}
+        onClose={() => {
+          setBoardRetrieveopen(false);
+        }}
+        board_id={board_id}
+      />
       </div>
     </div>
   );
 };
 ProductItem.propTypes = {
+  board_id: PropTypes.number,
   productName: PropTypes.string,
   brandName: PropTypes.string,
   price: PropTypes.string,

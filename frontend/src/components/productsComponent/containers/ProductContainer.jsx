@@ -35,6 +35,7 @@ const ProductContainer = (props) => {
           return (
             <ProductItem
               key={index}
+              board_id={product?.board_id}
               productName={product?.product_name}
               brandName={product?.brand_name}
               price={product?.price}

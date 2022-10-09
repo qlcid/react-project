@@ -11,11 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 public class TeamStatRes {
+  Integer boardId;
   String boardTitle;
   String boardContent;
   List<Applicant> applicants;
 
-  public TeamStatRes(String boardTitle, String boardContent, List<Apply> apply) {
+  public TeamStatRes(Integer boardId, String boardTitle, String boardContent, List<Apply> apply) {
+    this.boardId = boardId;
     this.boardTitle = boardTitle;
     this.boardContent = boardContent;
     this.applicants = apply.stream().map(

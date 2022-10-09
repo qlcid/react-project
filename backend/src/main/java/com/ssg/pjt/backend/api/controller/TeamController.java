@@ -3,6 +3,7 @@ package com.ssg.pjt.backend.api.controller;
 import com.ssg.pjt.backend.api.dto.req.ApplyReq;
 import com.ssg.pjt.backend.api.dto.res.TeamStatRes;
 import com.ssg.pjt.backend.api.service.TeamService;
+import com.ssg.pjt.backend.db.entity.Apply;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,12 @@ public class TeamController {
   @GetMapping("/{userId}")
   public ResponseEntity<TeamStatRes> findApplicant(@PathVariable String userId) {
     return ResponseEntity.ok(service.findApplicant(userId));
+  }
+
+  @ApiOperation(value = "본인의 신청 현황 조회", notes = "<strong>사용자 아아디</strong>를 통해 본인의 신청 현황을 조회한다.")
+  @GetMapping("/check/{userId}")
+  public ResponseEntity<Apply> findMyApply(@PathVariable String userId) {
+    return ResponseEntity.ok(service.findMyApply(userId));
   }
 
   @ApiOperation(value = "팀 가입 승인", notes = "<strong>사용자 아아디</strong>를 통해 해당 사용자를 승인한다.")

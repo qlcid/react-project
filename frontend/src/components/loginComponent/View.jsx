@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import RegistContainer from "../registComponent/View";
 import RegistPopup from "../registComponent/Regist";
 import "./style.css";
+import { useContext } from "react";
+import ProductContextProvider from "../../contexts/productContext";
+import { ProductContext } from "../../contexts/productContext";
 
 const LoginContainer = ({ onChange, user, onSubmit, onClose }) => {
+  const {
+    loginuserId,
+    setLoginuserId,
+  } = useContext(ProductContext);
   const [open, setOpen] = useState(false);
-
+  console.log(user);
+  // setLoginuserId(user);
   return (
     <div className="loginContainerBox">
       {/* <form onSubmit={onSubmit}> */}

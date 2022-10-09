@@ -19,9 +19,9 @@ const FilterDropdownMenu = (props) => {
     </ul>
   );
 };
-FilterDropdownMenu.propTypes = {
+FilterDropdownMenu.propTypes={
   Arr: PropTypes.array,
   setActive: PropTypes.func,
   onClose: PropTypes.func,
-};
+}
 export default FilterDropdownMenu;

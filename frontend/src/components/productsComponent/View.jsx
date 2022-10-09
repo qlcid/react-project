@@ -22,8 +22,8 @@ const Products = (props) => {
 
   return (
     <div className="products-home">
-      <h2>Edvora</h2>
-      <h3>Products</h3>
+      <h2>팀드루와</h2>
+      <h3>모집글</h3>
       {loading ? (
         <Loader />
       ) : hashMapProductsFilter ? (

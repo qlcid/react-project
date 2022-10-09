@@ -31,11 +31,7 @@ const FilterContainer = (props) => {
     clearBrandFilterProducts();
   };
   return (
-    <div
-      className={`filter-container ${hide ? "hide" : ""} ${
-        dark ? "dark" : "normal"
-      }`}
-    >
+    <div className={`filter-container ${hide ? "hide" : ""} ${dark ? "dark" : "normal"}`}>
       <div className="row">
         <div className="col-6">
           <h2 className="filter-header">Filter</h2>
@@ -49,19 +45,19 @@ const FilterContainer = (props) => {
       <div className="filter-line"></div>
       <ul className="filter-3">
         <FilterDropdown
-          constName={filterBrand ? filterBrand : "Products"}
+          constName={filterBrand ? filterBrand : "언어"}
           dropdownList={filterBrands}
           setActive={setActiveProduct}
           onClose={onClose}
         />
         <FilterDropdown
-          constName={filterState ? filterState : "State"}
+          constName={filterState ? filterState : "도시"}
           dropdownList={filterStates}
           setActive={setActiveState}
           onClose={onClose}
         />
         <FilterDropdown
-          constName={filterCity ? filterCity : "City"}
+          constName={filterCity ? filterCity : "성별"}
           dropdownList={filterCities}
           setActive={setActiveCity}
           onClose={onClose}

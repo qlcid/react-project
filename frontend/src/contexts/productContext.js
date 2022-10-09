@@ -16,6 +16,14 @@ export default function ProductContextProvider(props) {
   const [filterBrand, setFilterBrand] = useState(null);
   const [filterState, setFilterState] = useState(null);
   const [filterCity, setFilterCity] = useState(null);
+  const [loginuserId, setLoginUserId] = useState(null);
+
+  // value({
+  //   loginuserId
+  // })
+
+  // useContext
+
   //function to get products from the api
   const getProductsServices = () => {
     getProducts(
@@ -193,6 +201,8 @@ export default function ProductContextProvider(props) {
         clearBrandFilterProducts,
         setBrandFilterState,
         setBrandFilterCity,
+        loginuserId,
+        setLoginUserId,
       }}
     >
       {props.children}

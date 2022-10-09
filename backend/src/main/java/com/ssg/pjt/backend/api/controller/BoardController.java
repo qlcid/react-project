@@ -1,6 +1,7 @@
 package com.ssg.pjt.backend.api.controller;
 
 import com.ssg.pjt.backend.api.dto.req.BoardReq;
+import com.ssg.pjt.backend.api.dto.res.BoardCheckRes;
 import com.ssg.pjt.backend.api.dto.res.BoardRes;
 import com.ssg.pjt.backend.api.service.BoardService;
 import com.ssg.pjt.backend.db.entity.Board;
@@ -65,9 +66,7 @@ public class BoardController {
   
   @ApiOperation(value = "글 작성 조회", notes = "글 작성을 했는지 조회한다.")
   @GetMapping("/check/{userId}")
-  public ResponseEntity checkWriteYn(@PathVariable String userId) {
-    service.checkWriteYn(userId);
-
-    return new ResponseEntity(HttpStatus.OK);
+  public ResponseEntity<BoardCheckRes> checkWriteYn(@PathVariable String userId) {
+    return ResponseEntity.ok(service.checkWriteYn(userId));
   }
 }

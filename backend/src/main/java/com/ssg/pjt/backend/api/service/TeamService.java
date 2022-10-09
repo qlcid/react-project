@@ -25,7 +25,13 @@ public class TeamService {
 
     List<Apply> apply = applyRepository.findByBoardBoardId(board.getBoardId());
 
-    return new TeamStatRes(board.getBoardTitle(), board.getBoardContent(), apply);
+    return new TeamStatRes(board.getBoardId(), board.getBoardTitle(), board.getBoardContent(), apply);
+  }
+
+  public Apply findMyApply(String userId) {
+    Apply apply = applyRepository.findByUserUserId(userId).orElseThrow();
+
+    return apply;
   }
 
   @Transactional
@@ -40,7 +46,7 @@ public class TeamService {
     User user = userRepository.findById(req.getUserId()).orElseThrow();
     Board board = boardRepository.findById(req.getBoardId()).orElseThrow();
 
-    if (applyRepository.findByUserUserId(req.getUserId()).isPresent()) {
+    if (applyRepository.findByUserUserIdAndBoardBoardId(req.getUserId(), req.getBoardId()).isPresent()) {
       throw new Exception();
     }
 
